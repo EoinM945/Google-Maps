@@ -203,7 +203,7 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback
 
 
     @Throws(IOException::class)
-    private fun downloadUrl(strUrl: String): String? {
+    private fun downloadUrl(strUrl: String?): String? {
         var data = ""
         var iStream: InputStream? = null
         var urlConnection: HttpURLConnection? = null
@@ -305,7 +305,7 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback
 
 
 
-    private fun getDirectionsUrl(origin: LatLng, dest: LatLng): String?{
+    private fun getDirectionsUrl(origin: LatLng, dest: LatLng): String {
         //Origin of route
         val str_origin = "origin=" + origin.latitude + "," + origin.longitude
 
@@ -322,7 +322,7 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback
         val output = "json"
 
         //building the url to the web service
-        return "https://maps.googleapis.com/maps/api/directions/$output?$parameters&key=AIzaSyCgraKSwPfUIyZLOmEDh_ptAbfRRAj7y1g"
+        return "https://maps.googleapis.com/maps/api/directions/$output?$parametersAPIKEY"
     }
 
     public override fun onSaveInstanceState(outState: Bundle) {
